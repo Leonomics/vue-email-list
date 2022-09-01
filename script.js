@@ -4,7 +4,7 @@ const app = new Vue({
         res:'',
     },
     mounted(){
-        this.res = getAPI()
+        this.res = this.getAPI()
     },
     methods:{
         getAPI(){
