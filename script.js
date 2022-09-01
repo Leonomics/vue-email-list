@@ -1,19 +1,25 @@
 const app = new Vue({
     el:'#app',
     data:{
-        res:'',
+        
+        emailList:[],
     },
     mounted(){
-        this.res = this.getAPI()
+        this.getAPI()
     },
     methods:{
         getAPI(){
-            axios
-            .get('https://flynn.boolean.careers/exercises/api/random/mail')
-            .then((res) => {
-                return res;
+            for(let i=0; i<10; i++){
+                axios
+                    .get('https://flynn.boolean.careers/exercises/api/random/mail')
+                    .then((res) => {
+                console.log(res.data.response)
+                this.emailList.push(res.data.response);
             })
+            }
+            
         }
+        
     }
     
 });
