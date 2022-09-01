@@ -4,12 +4,16 @@ const app = new Vue({
         res:'',
     },
     mounted(){
-        axios
+        this.res = getAPI()
+    },
+    methods:{
+        getAPI(){
+            axios
             .get('https://flynn.boolean.careers/exercises/api/random/mail')
             .then((res) => {
-                this.res = res
-                
+                return res;
             })
-    },
+        }
+    }
     
 });
